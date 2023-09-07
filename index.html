@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color en RGB</title>
+    
+    <!-- Agregar los enlaces a Bootstrap CSS y JavaScript -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+        #miDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 0); /* Color inicial en negro (RGB) */
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Mi Página Web</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Cambiar Tonalidad de Color en RGB</h1>
+        <div id="miDiv" class="rounded"></div>
+        <div class="form-group mt-4">
+            <label for="redSlider">Rojo:</label>
+            <input type="range" class="form-range" id="redSlider" min="0" max="255" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="greenSlider">Verde:</label>
+            <input type="range" class="form-range" id="greenSlider" min="0" max="255" value="0">
+        </div>
+        
+        <div class="form-group">
+            <label for="blueSlider">Azul:</label>
+            <input type="range" class="form-range" id="blueSlider" min="0" max="255" value="0">
+        </div>
+    </div>
+    
+    <footer class="bg-dark text-white text-center mt-5 py-3">
+        <p>&copy; 2023 Tu Nombre</p>
+    </footer>
+    
+    <script>
+        const miDiv = document.getElementById("miDiv");
+        const redSlider = document.getElementById("redSlider");
+        const greenSlider = document.getElementById("greenSlider");
+        const blueSlider = document.getElementById("blueSlider");
+
+        redSlider.addEventListener("input", actualizarColor);
+        greenSlider.addEventListener("input", actualizarColor);
+        blueSlider.addEventListener("input", actualizarColor);
+
+        function actualizarColor() {
+            const redValue = redSlider.value;
+            const greenValue = greenSlider.value;
+            const blueValue = blueSlider.value;
+
+            // Actualizar el fondo del DIV con el nuevo color RGB
+            miDiv.style.backgroundColor = `rgb(${redValue},${greenValue},${blueValue})`;
+        }
+    </script>
+    
+    <!-- Agregar los enlaces a Bootstrap JS y jQuery (opcional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
